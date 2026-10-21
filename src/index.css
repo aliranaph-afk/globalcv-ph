@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@page {
+  size: auto;
+  margin: 12mm 14mm;
+}
+
+.print-resume-line,
+.experience-block,
+.education-entry,
+.certification-grid {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+#resume-print-area {
+  display: none;
+}
+
+@media print {
+  html,
+  body,
+  #root {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    color: #111 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  #resume-print-area,
+  #resume-print-area * {
+    visibility: visible !important;
+  }
+
+  #resume-print-area {
+    position: absolute !important;
+    inset: 0 auto auto 0 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #111 !important;
+    background: #fff !important;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+
+  #resume-print-area h1 {
+    margin: 0 0 3mm;
+    font-size: 20pt;
+    line-height: 1.2;
+  }
+
+  #resume-print-area .print-subtitle {
+    margin: 0 0 6mm;
+    border-bottom: 1px solid #999;
+    padding-bottom: 3mm;
+    color: #555;
+    font-size: 8pt;
+    text-transform: uppercase;
+  }
+
+  #resume-print-area .print-resume-line {
+    min-height: 1em;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .print-hidden {
+    display: none !important;
+  }
+}
